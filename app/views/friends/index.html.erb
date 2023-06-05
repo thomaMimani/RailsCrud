@@ -2,13 +2,41 @@
 
 <h1>Friends</h1>
 
-<div id="friends">
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Twitter</th>
+      <th scope="col">Show Friend</th>
+      <th scope="col">Edit Friend</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @friends.each do |friend| %>
-    <%= render friend %>
-    <p>
-      <%= link_to "Show this friend", friend %>
-    </p>
+    <tr>
+      <th scope="row"><%= friend.id%></th>
+      <td><%= friend.first_name%></td>
+      <td><%= friend.last_name%></td>
+      <td><%= friend.email%></td>
+      <td><%= friend.phone%></td>
+      <td><%= friend.twitter%></td>
+      <td><%= link_to "Show", friend %></td>
+      <td><%= link_to "Edit", edit_friend_path(friend) %></td>
+
+    </tr>
   <% end %>
-</div>
+  </tbody>
+  </table>
+
+
+    <%# <p>
+      <%= link_to "Show this friend", friend %>
+    </p> %>
+
 
 <%= link_to "New friend", new_friend_path %>
